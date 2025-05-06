@@ -24,6 +24,48 @@ npx hardhat
 ```
 
 
+
+Deployment Guide (Using Hardhat)
+Follow these steps to deploy your smart contract using Hardhat.
+
+1. Clone the Repository
+```shell
+git clone https://github.com/AryanPace/Crowdfunding.git
+cd Crowdfunding
+```
+2. Install Dependencies
+```shell
+npm install
+```
+3. Compile the Contracts
+```shell
+npx hardhat compile
+```
+4. Set Up Environment Variables
+Create a .env file in the root directory and add your private key and RPC URL (e.g., from Alchemy or Infura):
+
+```shell
+PRIVATE_KEY=your_wallet_private_key
+RPC_URL=https://eth-sepolia.g.alchemy.com/v2/your-api-key
+```
+Warning: Never commit your private key to version control.
+
+5. Deploy the Contract
+Run the deployment script:
+
+```shell
+npx hardhat run scripts/deploy.js --network sepolia
+```
+Replace sepolia with the desired network (e.g., mainnet, goerli, etc.) as configured in hardhat.config.js.
+
+6. Verify the Contract (Optional)
+If you've deployed to Etherscan-supported networks:
+
+```shell
+npx hardhat verify --network sepolia DEPLOYED_CONTRACT_ADDRESS
+```
+
+
 Try running some of the following tasks:
 
 ```shell
